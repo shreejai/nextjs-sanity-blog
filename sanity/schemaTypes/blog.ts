@@ -15,6 +15,9 @@ export default {
       name: 'slug',
       type: 'slug',
       title: 'Slug of your blog article',
+      options: {
+        source: 'title',
+      }
     },
     {
       name: 'titleImage',
