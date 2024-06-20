@@ -1,5 +1,6 @@
 import { fullBlog } from "@/app/lib/interface";
 import { client, urlFor } from "@/app/lib/sanity";
+import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 
 async function getData(slug: string){
@@ -25,6 +26,10 @@ export default async function BlogArticle({params}:{params: {slug: string}}) {
       </h1>
       
       <Image src={urlFor(data.titleImage).url()} width={800} height={800} alt="Title image" priority className="mt-8 rounded-lg border"/>
+
+      <div className="mt-16 prose prose-blue prose-lg dark:prose-invert prose-li:marker:text-primary prose-a:text-primary">
+        <PortableText value={data.content}/>
+      </div>
     </div>
   )
 }
